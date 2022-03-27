@@ -12,7 +12,13 @@ class Logger {
 		})
 	}
 
-	_log (level, props, args) {
+	_log (level, _props, args) {
+		let props = _props
+		if (typeof props === 'string') {
+			args.unshift(props)
+			props = {}
+		}
+
 		this._callback({
 			timestamp: Date.now(),
 			level,
