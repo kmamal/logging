@@ -9,15 +9,22 @@ const _levels = {
 	60: { str: "FATAL", method: console.error },
 }
 
-const logToConsole = (log) => {
-	const { str, method } = _levels[log.level]
-	const date = new Date(log.timestamp).toISOString()
-	method(`[${date}] ${str}:`, ...log.msg, log.props)
+const defaultFormatDate = (timestamp) =>
+	new Date(timestamp).toISOString()
+
+const logToConsole = (options) => {
+	const formatDate = options?.formatDate ?? defaultFormatDate
+	return (log) => {
+		const { str, method } = _levels[log.level]
+		const date = formatDate(log.timestamp)
+		method(`[${date}] ${str}:`, ...log.msg, log.props)
+	}
 }
 
+
 class ConsoleLogger extends Logger {
-	constructor () {
-		super(logToConsole)
+	constructor (options) {
+		super(logToConsole(options))
 	}
 }
 
