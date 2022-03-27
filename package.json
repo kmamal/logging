@@ -11,5 +11,14 @@
     "test": "./scripts/run-tests.sh",
     "update-exports": "./scripts/update-exports.sh"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "exports": {
+    "./file": "./src/file.js",
+    "./logger": "./src/logger.js",
+    "./console": "./src/console.js",
+    "./dummy": "./src/dummy.js",
+    "./stream": "./src/stream.js",
+    "./dir": "./src/dir.js",
+    "./utils": "./src/utils.js"
+  }
 }
