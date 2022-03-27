@@ -16,7 +16,7 @@ class Dir {
 		this._names = new Set()
 	}
 
-	createFileLogger (name, fields) {
+	createFileLogger (name, options) {
 		if (this._names.has(name)) {
 			const error = new Error("logger exists")
 			error.name = name
@@ -24,7 +24,7 @@ class Dir {
 		}
 
 		const path = Path.join(this._dir, name)
-		return new FileLogger(path, fields)
+		return new FileLogger(path, options)
 	}
 }
 

@@ -11,7 +11,7 @@ const _levels = {
 
 const logToConsole = (log) => {
 	const { str, method } = _levels[log.level]
-	const date = new Date(log.timestamp)
+	const date = new Date(log.timestamp).toISOString()
 	method(`[${date}] ${str}:`, ...log.msg, log.props)
 }
 

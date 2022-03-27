@@ -1,13 +1,15 @@
-const { logToStream, StreamLogger } = require('./stream')
+const { Logger } = require('./logger')
+const { logToStream } = require('./stream')
+const Fs = require('fs')
 
-const logToFile = (file) => {
-	const stream = file.createWriteStream()
+const logToFile = (file, options) => {
+	const stream = Fs.createWriteStream(file, options)
 	return logToStream(stream)
 }
 
-class FileLogger extends StreamLogger {
-	constructor (file) {
-		super(logToFile(file))
+class FileLogger extends Logger {
+	constructor (file, options) {
+		super(logToFile(file, options))
 	}
 }
 
