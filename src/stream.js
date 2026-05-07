@@ -8,8 +8,8 @@ const logToStream = (stream) =>
 	}
 
 class StreamLogger extends Logger {
-	constructor (stream) {
-		super(logToStream(stream))
+	constructor (stream, props) {
+		super(logToStream(stream), props)
 	}
 }
 

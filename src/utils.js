@@ -1,6 +1,6 @@
 
 const stringify = (log) => {
-	const props = { ...log.props }
+	const { props } = log
 	for (const [ key, prop ] of Object.entries(props)) {
 		if (prop instanceof Error) {
 			props[key] = {
@@ -12,6 +12,4 @@ const stringify = (log) => {
 	return JSON.stringify({ ...log, props })
 }
 
-module.exports = {
-	stringify,
-}
+module.exports = { stringify }

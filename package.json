@@ -11,6 +11,7 @@
     "update-exports": "node ./scripts/update-exports.mjs"
   },
   "exports": {
+    "./tmp": "./src/tmp.js",
     "./dummy": "./src/dummy.js",
     "./stream": "./src/stream.js",
     "./logger": "./src/logger.js",

@@ -1,6 +1,6 @@
 const { Logger } = require('./logger')
 const { logToStream } = require('./stream')
-const Fs = require('fs')
+const Fs = require('node:fs')
 
 const logToFile = (file, options) => {
 	const stream = Fs.createWriteStream(file, options)
@@ -8,8 +8,8 @@ const logToFile = (file, options) => {
 }
 
 class FileLogger extends Logger {
-	constructor (file, options) {
-		super(logToFile(file, options))
+	constructor (file, props, options) {
+		super(logToFile(file, options), props)
 	}
 }
 
