@@ -6,7 +6,7 @@ const Path = require('node:path')
 const _logDir = Path.join(Os.tmpdir(), 'log')
 Fs.mkdirSync(_logDir, { recursive: true })
 
-const _name = Path.basename(process.argv[0])
+const _name = Path.basename(process.argv[1])
 const _file = `${_name}-${process.pid}-`
 const _prefix = Path.join(_logDir, _file)
 const _path = Fs.mkdtempSync(_prefix)
