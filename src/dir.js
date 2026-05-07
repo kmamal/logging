@@ -22,6 +22,7 @@ class Dir {
 			error.name = name
 			throw error
 		}
+		this._names.add(name)
 
 		const path = Path.join(this._dir, name)
 		return new FileLogger(path, options)
