@@ -11,12 +11,12 @@
     "update-exports": "node ./scripts/update-exports.mjs"
   },
   "exports": {
-    "./file": "./src/file.js",
-    "./logger": "./src/logger.js",
-    "./console": "./src/console.js",
     "./dummy": "./src/dummy.js",
     "./stream": "./src/stream.js",
+    "./logger": "./src/logger.js",
     "./dir": "./src/dir.js",
+    "./file": "./src/file.js",
+    "./console": "./src/console.js",
     "./utils": "./src/utils.js"
   }
 }
